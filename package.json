@@ -1,0 +1,13 @@
+{
+  "name": "minsg",
+  "version": "1.0.0",
+  "description": "A small lib i made to generate Generic React Components (you have your choice of Class based vs. Functional)",
+  "main": "./index.js",
+  "bin": "./index.js",
+  "scripts": {
+      
+  },
+  "keywords": ["React", "Generate", "Components", "Snippets"],
+  "author": "Jonathan Atia",
+  "license": ""
+}
