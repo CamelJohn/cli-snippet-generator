@@ -1,13 +1,16 @@
 const capitalize = require('./capitalize');
 const cc = require('../components/classBased');
 const fc = require('../components/functional');
+const sc = require('../components/style');
 const fs = require('fs');
+const { fgb, Reset } = require('../colors/colors');
 
 module.exports = (path, type) => {
-  let temp = path.split('/').slice(3);
+  let temp = path.split('/');    
   let component = capitalize(temp.pop());
 
-  temp = temp.join('/');
+  temp = temp.join('/');   
+  
   fs.mkdirSync(temp + '/' + component, { recursive: true });
 
   generateComponent(temp + '/' + component, component, type);
@@ -18,14 +21,14 @@ const generateComponent = (path, file, type) => {
     fs.writeFile(`${path}/${file}.js`, `${type === 'fc' ? fc(file) : cc(file)}`, err => {
         if (err) console.log(err);
       });
-    fs.writeFile(`${path}/${file}.module.css`, ``, err => {
+    fs.writeFile(`${path}/${file}.module.css`, `${sc(file)}`, err => {
       if (err) console.log(err);
     });
 
-    console.log(`created ${file} Folder`)
-    console.log(`created ${file}.js File`)
-    console.log(`created ${file}.module.css File`)
+    console.log(`${fgb.Green}created${Reset} ${file} Folder`);
+    console.log(`${fgb.Green}created${Reset} ${file}.js File`);
+    console.log(`${fgb.Green}created${Reset} ${file}.module.css File`);
   } else {
-    console.log(`[Error]: Component ${path}.js already exists.`);
+    console.log(`${fgb.Red}failed${Reset} Component ${fgb.Cyan}${capitalize(path)}${Reset} already exists.`);
   }
 }

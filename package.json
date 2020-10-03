@@ -8,6 +8,11 @@
       
   },
   "keywords": ["React", "Generate", "Components", "Snippets"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CamelJohn/cli-snippet-generator.git"
+  },
+  "homepage": "https://github.com/CamelJohn/cli-snippet-generator#readme",
   "author": "Jonathan Atia",
   "license": ""
 }
